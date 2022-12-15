@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .login-input {
+    @apply block border w-full h-5 px-3 py-5 mt-2 hover:outline-none focus:outline-none focus:ring-1 focus:ring-primaryLight rounded-md bg-white;
+  }
+  .login-btn {
+    @apply mt-4 !bg-primary text-white py-2 px-6 rounded-md hover:!bg-primaryLight disabled:cursor-not-allowed disabled:!bg-primaryLight disabled:hover:clear-none w-36;
+  }
+}
+
+/* .login-bg {
+  background-color: #112330;
+} */
+
+.login-logo {
+  filter: drop-shadow(2px 4px 6px black);
+}

@@ -1,0 +1,35 @@
+.data-loading-overlay {
+  position: fixed; /* Sit on top of the page content */
+  opacity: 0.5;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 99; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+.data-loading-spinner {
+  position: absolute;
+  /* top: 47%;
+  left: 45%; */
+}
+
+.data-loading-spinner-no-text {
+  position: absolute;
+  /* top: 47%;
+  left: 49%; */
+}
+
+.data-loading-spinner > .ant-spin-text,
+.data-loading-spinner-no-text > .ant-spin-text {
+  color: red;
+  font-weight: bold;
+  font-size: 22px;
+}
+.data-loading-spinner > .ant-spin-dot-spin > .ant-spin-dot-item,
+.data-loading-spinner-no-text > .ant-spin-dot-spin > .ant-spin-dot-item {
+  background-color: red !important;
+}

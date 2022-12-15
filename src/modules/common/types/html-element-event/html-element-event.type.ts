@@ -1,0 +1,6 @@
+type HTMLElementEvent<T extends HTMLElement> = Event & {
+  target: T;
+  // currentTarget: T;
+};
+
+export default HTMLElementEvent;
