@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -5,23 +6,19 @@ const ErrorPage: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex items-center justify-center w-screen h-80v">
-      <div className="sm:px-40 py-20 bg-white rounded-md shadow-xl">
-        <div className="flex flex-col items-center">
-          <h1 className="font-bold text-blue-600 text-9xl">404</h1>
-
-          <h6 className="mb-2 text-2xl font-bold text-center text-gray-800 md:text-3xl">
-            <span className="text-red-500">Oops!</span> Page not found
-          </h6>
-
-          <p className="mb-8 text-center text-gray-500 md:text-lg">The page you’re looking for doesn’t exist.</p>
-
-          <button
-            type="button"
-            onClick={() => navigate('/')}
-            className="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100"
-          >
-            Go home
+    <div className="">
+      <img
+        src="https://images.unsplash.com/photo-1545972154-9bb223aac798?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3050&q=80&exp=8&con=-15&sat=-75"
+        alt=""
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+      />
+      <div className="mx-auto max-w-7xl px-6 py-32 text-center sm:py-40 lg:px-8">
+        <p className="text-base font-semibold leading-8 text-white">404</p>
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">Page not found</h1>
+        <p className="mt-4 text-base text-white/70 sm:mt-6">Sorry, we couldn’t find the page you’re looking for.</p>
+        <div className="mt-10 flex justify-center">
+          <button type="button" onClick={() => navigate(-1)} className="text-sm font-semibold leading-7 text-white">
+            <span aria-hidden="true">&larr;</span> Back to home
           </button>
         </div>
       </div>

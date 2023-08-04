@@ -67,6 +67,22 @@ module.exports = {
             },
           },
         },
+        {
+          // name your theme anything that could be a valid css selector
+          // remember what you named your theme because you will use it as a class to enable the theme
+          name: 'red-theme',
+          // put any overrides your theme has here
+          // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
+          extend: {
+            colors: {
+              primary: '#ef4444',
+              primaryLight: '#fca5a5',
+              primaryDark: '#991b1b',
+              highlight: '#fee2e2',
+              text: '#ffffff',
+            },
+          },
+        },
       ],
     }),
   ],

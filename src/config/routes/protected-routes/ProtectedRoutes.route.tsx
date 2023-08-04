@@ -2,8 +2,10 @@ import React from 'react';
 import { Location, Navigate, NavigateFunction, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../../../modules';
 import session from '../../session/session.config';
+import { useThemeStore } from '../../hooks';
 
 const useAuth = (navigate: NavigateFunction, location: Location) => {
+  const { theme } = useThemeStore();
   const user = localStorage.getItem('currentUser');
   if (user) {
     const isRouteAuthenticated = session.authenticateRoute(window.location.pathname);
@@ -11,7 +13,7 @@ const useAuth = (navigate: NavigateFunction, location: Location) => {
       navigate('/', { replace: true, state: { from: location } });
     } else if (typeof isRouteAuthenticated === 'string') return <Navigate to={isRouteAuthenticated} />;
     return (
-      <div className="blue-theme h-screen bg-gradient-to-tl from-primaryDark to-primary text-text">
+      <div className={`${theme} h-screen bg-gradient-to-tl from-primaryDark to-primary text-text`}>
         <div className="h-full flex flex-col">
           <Header />
           <div className="w-fill h-fill overflow-y-auto">

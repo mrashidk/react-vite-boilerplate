@@ -2,7 +2,6 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
-import 'antd/dist/antd.css';
 import 'ag-grid-community/styles/ag-grid.css'; // Core grid CSS, always needed
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Optional theme CSS
 import RoutesContainer from './config/routes/routes-container/RoutesContainer.route';

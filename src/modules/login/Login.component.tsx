@@ -6,6 +6,7 @@ import session, { SessionData } from '../../config/session/session.config';
 import loginApi from './login.api';
 
 import './login.css';
+import { useThemeStore } from '../../config/hooks';
 
 type LoginDto = {
   username: string;
@@ -21,6 +22,7 @@ type LocationType = {
 };
 
 const Login: React.FC = () => {
+  const { theme } = useThemeStore();
   const [invalidCredentials, setInvalidCredentials] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,7 +70,9 @@ const Login: React.FC = () => {
   // bg-gradient-to-r from-gray-700 to-gray-400
 
   return (
-    <div className="blue-theme min-h-screen bg-gradient-to-tl from-primaryDark to-primary antialiased py-6 flex flex-col justify-center sm:py-12 ">
+    <div
+      className={`${theme} min-h-screen bg-gradient-to-tl from-primaryDark to-primary antialiased py-6 flex flex-col justify-center sm:py-12 `}
+    >
       <div className="relative sm:w-[40%] mx-auto text-center login-logo flex flex-col justify-center items-center">
         <img src="vite.svg" alt="main-logo" className="w-48" />
         <p className="text-3xl font-bold mb-10 text-white"> &quot;Vite Boilerplate...&quot;</p>
