@@ -1,3 +1,6 @@
+import { clsx, ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
 const utils = {
   // eslint-disable-next-line no-promise-executor-return
   sleep: (interval: number) => new Promise((resolve) => setTimeout(resolve, interval)),
@@ -20,6 +23,10 @@ const utils = {
 
     return formatter.format(value);
   },
+};
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
 };
 
 export default utils;

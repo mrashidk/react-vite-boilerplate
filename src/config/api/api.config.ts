@@ -49,12 +49,11 @@ const api = {
     axios.put(getApiUrl(url, apiUrl), payload, updateOptions(options)).catch(errorHandler) as Promise<AxiosResponse>,
   delete: (url: string, options: AxiosRequestConfig<unknown> = {}, apiUrl: string | boolean = false) =>
     axios.delete(getApiUrl(url, apiUrl), updateOptions(options)).catch(errorHandler) as Promise<AxiosResponse>,
-  setAuthenticationHeader: (tokenData: { token: string; id: string; username: string }) => {
+  setAuthenticationHeader: (tokenData: { token: string; id: string }) => {
     apiOptions = {
       headers: {
         'x-access-token': tokenData.token,
         'x-user-id': tokenData.id,
-        'x-username': tokenData.username,
       },
     };
   },
@@ -62,5 +61,14 @@ const api = {
     apiOptions = {};
   },
 };
+
+export type TApiResponse<T = undefined> = Promise<
+  AxiosResponse<{
+    data: T;
+    action: string;
+    status: 'successful' | 'failed';
+    message?: Partial<string>;
+  }>
+>;
 
 export default api;

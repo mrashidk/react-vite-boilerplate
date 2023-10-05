@@ -71,14 +71,14 @@ const Login: React.FC = () => {
 
   return (
     <div
-      className={`${theme} min-h-screen bg-gradient-to-tl from-primaryDark to-primary antialiased py-6 flex flex-col justify-center sm:py-12 `}
+      className={`${theme} flex min-h-screen flex-col justify-center bg-gradient-to-tl from-primaryDark to-primary py-6 antialiased sm:py-12 `}
     >
-      <div className="relative sm:w-[40%] mx-auto text-center login-logo flex flex-col justify-center items-center">
+      <div className="login-logo relative mx-auto flex flex-col items-center justify-center text-center sm:w-[40%]">
         <img src="vite.svg" alt="main-logo" className="w-48" />
-        <p className="text-3xl font-bold mb-10 text-white"> &quot;Vite Boilerplate...&quot;</p>
+        <p className="mb-10 text-3xl font-bold text-white"> &quot;Vite Boilerplate...&quot;</p>
       </div>
-      <div className="mx-auto relative bg-white sm:w-2/4 shadow-md rounded-lg text-left">
-        <div className="h-2 bg-primary rounded-t-md" />
+      <div className="relative mx-auto rounded-lg bg-white text-left shadow-md sm:w-2/4">
+        <div className="h-2 rounded-t-md bg-primary" />
         <form className="px-8 py-6" onSubmit={(e) => login(e)}>
           <label className="black font-semibold" htmlFor="username-or-email">
             Username or Email
@@ -112,11 +112,11 @@ const Login: React.FC = () => {
             />
           </label>
           {invalidCredentials && <span className="text-primary">Invalid Credentials!</span>}
-          <div className="flex justify-between items-baseline">
+          <div className="flex items-baseline justify-between">
             <button disabled={loginQuery.isFetching} type="submit" className="login-btn">
               {loginQuery.isFetching ? (
-                <div className="flex justify-center items-center">
-                  <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primaryDark" />
+                <div className="flex items-center justify-center">
+                  <div className="h-6 w-6 animate-spin rounded-full border-b-2 border-primaryDark" />
                 </div>
               ) : (
                 'Login'

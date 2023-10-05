@@ -20,7 +20,15 @@
     "noUnusedParameters": true,
     "incremental": true,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "baseUrl": "./src",
+    "paths": {
+      "@common/*": ["modules/common/*"],
+      "@api": ["config/api/api.config"],
+      "@session": ["config/session/session.config"],
+      "@utils": ["modules/common/services/utils.service"],
+      "@variable": ["config/variables/system.variable"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build"],

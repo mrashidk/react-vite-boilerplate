@@ -74,7 +74,7 @@ const NavigationPopover: FC<NavigationPopoverProps> = ({ menuTitle, linksArray }
           <Popover.Button
             ref={buttonRef}
             className={classNames(
-              open ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+              open ? 'bg-gray-900 text-white' : 'text-text hover:bg-gray-700 hover:text-white',
               'group inline-flex items-center rounded-md',
               'px-3 py-2 rounded-md text-sm font-medium focus:outline-none',
             )}
@@ -84,7 +84,7 @@ const NavigationPopover: FC<NavigationPopoverProps> = ({ menuTitle, linksArray }
             {!open ? (
               <ChevronDownIcon
                 className={classNames(
-                  'text-gray-400',
+                  'text-text',
                   'ml-2 h-5 w-5 transition duration-150 ease-in-out group-hover:text-gray-500',
                 )}
                 aria-hidden="true"
@@ -121,12 +121,12 @@ const NavigationPopover: FC<NavigationPopoverProps> = ({ menuTitle, linksArray }
                         item.enabled === false ? 'pointer-events-none cursor-not-allowed !text-gray-700 opacity-40' : ''
                       } flex justify-start items-center space-x-4 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-primaryLight text-gray-400 rounded px-3 py-2  w-full md:w-52`}
                     >
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primaryLight text-white sm:h-12 sm:w-12">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-primaryLight text-text sm:h-12 sm:w-12">
                         <item.icon className="h-6 w-6" aria-hidden="true" />
                       </div>
                       <div className="ml-4">
-                        <p className="text-base font-medium text-white">{item.name}</p>
-                        <p className="mt-1 text-sm text-gray-300">{item.description}</p>
+                        <p className="text-base font-medium text-text">{item.name}</p>
+                        <p className="mt-1 text-sm text-text">{item.description}</p>
                       </div>
                     </Link>
                   ))}

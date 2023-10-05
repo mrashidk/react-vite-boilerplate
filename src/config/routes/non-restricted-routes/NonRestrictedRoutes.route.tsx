@@ -10,7 +10,7 @@ const NonRestrictedRoutes: React.FC = () => {
     <div className={`${theme} h-screen bg-gradient-to-tl from-primaryDark to-primary text-text`}>
       <div className="h-full flex flex-col">
         <Header />
-        <div className="w-fill h-fill overflow-y-auto">
+        <div className="overflow-y-auto flex flex-col flex-grow">
           <Outlet />
         </div>
       </div>

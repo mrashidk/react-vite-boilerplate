@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -39,6 +40,10 @@ module.exports = {
   },
   plugins: [
     require('@savvywombat/tailwindcss-grid-areas'),
+    require('@tailwindcss/forms')({
+      strategy: 'base', // only generate global styles
+      strategy: 'class', // only generate classes
+    }),
     require('tailwindcss-themer')({
       defaultTheme: {
         // put the default values of any config you want themed
@@ -63,7 +68,7 @@ module.exports = {
               primaryLight: '#7c43bd',
               primaryDark: '#12005e',
               highlight: '#1e88e5',
-              text: '#ffffff',
+              text: '#000',
             },
           },
         },
@@ -84,6 +89,25 @@ module.exports = {
           },
         },
       ],
+    }),
+    plugin(({ theme, addUtilities }) => {
+      const neonUtilities = {};
+      const colors = theme('colors');
+      for (const color in colors) {
+        if (typeof colors[color] === 'object') {
+          const color1 = colors[color][500];
+          const color2 = colors[color][700];
+          const colorLight1 = colors[color][200];
+          const colorLight2 = colors[color][400];
+          neonUtilities[`.neon-${color}`] = {
+            'box-shadow': `0 0 5px ${color1}, 0 0 20px ${color2}`,
+          };
+          neonUtilities[`.neon-${color}-light`] = {
+            'box-shadow': `0 0 2px ${colorLight1}, 0 0 10px ${colorLight2}`,
+          };
+        }
+      }
+      addUtilities(neonUtilities);
     }),
   ],
 };
